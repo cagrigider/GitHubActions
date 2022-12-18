@@ -25,9 +25,9 @@ jobs:
     - name: Build
       run: |
         cd GitHubActions
-        xcodebuild -project build GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos -destination "$DESTINATION" CODE_SIGNING_ALLOWED=No
+        xcodebuild -project build GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos -destination "${destination}" CODE_SIGNING_ALLOWED=No
 
     - name: Run tests
       run: |
         cd GitHubActions
-        xcodebuild -project GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos -destination "$DESTINATION" CODE_SIGNING_ALLOWED=No
+        xcodebuild -project GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos -destination "${destination}" CODE_SIGNING_ALLOWED=No
