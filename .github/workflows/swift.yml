@@ -21,4 +21,4 @@ jobs:
           xcodebuild clean build -project GitHubActions.xcodeproj -scheme GitHubActions -sdk iphoneos CODE_SIGNING_ALLOWED=NO
     - name: Run tests
       run: |
-          xcodebuild clean test -project GitHubActions.xcodeproj -scheme GitHubActionsTest -sdk iphoneos CODE_SIGNING_ALLOWED=NO
+          xcodebuild clean test -project GitHubActions.xcodeproj -scheme GitHubActions -sdk iphoneos CODE_SIGNING_ALLOWED=NO
