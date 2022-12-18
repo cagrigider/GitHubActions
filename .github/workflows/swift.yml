@@ -17,6 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: swift build -v
+      run: |
+          xcodebuild -workspace JokeMe.xcworkspace -scheme JokeMe clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
     - name: Run tests
       run: swift test -v
