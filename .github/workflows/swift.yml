@@ -13,10 +13,12 @@ jobs:
   build:
 
     runs-on: macos-12
-    env:
+    strategy:
       matrix:
-        - DESTINATION="platform=iOS Simulator,OS=16.1,name=iPhone 14"
-        - DESTINATION="platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max"
+        destination: [
+          "platform=iOS Simulator,OS=16.1,name=iPhone 14",
+          "platform=iOS Simulator,OS=16.1,name=iPhone 14 Pro Max"
+        ]
 
     steps:
     - uses: actions/checkout@v3
