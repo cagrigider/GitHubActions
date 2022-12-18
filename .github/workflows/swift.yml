@@ -4,30 +4,30 @@
 name: Swift
 
 on:
-  push:
+    push:
     branches: [ "main" ]
-  pull_request:
+    pull_request:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+    build:
+    
     runs-on: macos-12
     strategy:
-      matrix:
-        destination: [
-          "platform=iOS Simulator,name=iPhone 14,OS=16.0"
-          "platform=iOS Simulator,name=iPhone 14 Pro Max,OS=16.0"
-        ]
-
+        matrix:
+            destination: [
+                "platform=iOS Simulator,name=iPhone 14,OS=16.0"
+                "platform=iOS Simulator,name=iPhone 14 Pro Max,OS=16.0"
+            ]
+    
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: |
+        run: |
         cd GitHubActions
         xcodebuild -project build GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos -destination "${destination}" CODE_SIGNING_ALLOWED=No
-
+    
     - name: Run tests
-      run: |
+        run: |
         cd GitHubActions
         xcodebuild -project GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos -destination "${destination}" CODE_SIGNING_ALLOWED=No
