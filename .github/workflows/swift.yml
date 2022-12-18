@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: |
         cd GitHubActions
-        swift build -v
+        xcodebuild -project GitHubActions.xcodeproj -scheme GitHubActions clean build -sdk iphoneos CODE_SIGNING_ALLOWED=No
 
     - name: Run tests
       run: |
